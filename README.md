@@ -17,7 +17,6 @@ video, audio, 3D). Il fuoco del corso è sui primi.
 - dataset IRIS: utile perchè: "storico" (lo usò Fisher ed è ancora oggi usatissimo); semplice e facile da capire; struttura molto generalizzabile (predittori numerici e risposta categorica)
 - Dataset di prova: "UCI ML datasets", "kaggle datasets" --> centinaia di dataset utilizzabili come prova degli algoritmi di ML
 
-----
 
 - EDA (Analisi Esplorativa dei Dati): si parte ccosì, non con la costruzione del modello predittivo: identificare Missing Value e outlier (possono impattare molto l'accuratezza del modello), 3 plot (scatterplot, boxplot, istogramma), 
 correlazioni  tra coppie di variabili numeriche, pattern
@@ -25,6 +24,22 @@ correlazioni  tra coppie di variabili numeriche, pattern
 
 ---
 
-- Readme.
 
+Programma della prima giornata (3.11.2025) - pomeriggio
+
+- fine del wf "getting started"
+
+- Readme
 - Commit: come funziona. Aggiungere slide mancanti. 
+
+--> se la colonna risposta è qualitativa --> è un problema di CLASSIFICAZIONE e la metrica è la "classification accuracy
+--> se la colonna risposta è quantitativa --> è un problema di PREVISIONE NUMERICA e la metrica è lo RMSE (Rooted Mean Square Error)
+I predittori invece possono essere indifferentemente quantitativi o qualitativi (sono trattati in modo differente)
+
+- la metrica di accuratezza della classificazione ("classification accuracy")
+- il primo modello predittivo in Orange (l'albero per il dataset Titanic); vari modelli per il dataset Credit
+- la metrica di accuratezza della regressione (RMSE)
+
+- vari casi d'uso di ML
+
+- nella classificazione l'incertezza è espressa tramite le probabilità delle classi, nella regressione l'incertezza è espressa tramite un intervallo di confidenza 
