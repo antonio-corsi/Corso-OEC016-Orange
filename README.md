@@ -1,7 +1,8 @@
-# Corso-OEC016-Orange
-Repository del corso OEC016 del 3-4-5 novembre 2025
+# Corso-OEC016-Orange (Introduzione al ML predittivo)
+3-4-5 novembre 2025
 
-Programma della prima giornata (3.11.2025) - mattina
+Programma della prima giornata (3.11.2025) - mattina:
+
 - Tassonomia (AI vs ML vs NN vs DL vs genAI)
 - Dati strutturati (tabelle righe / colonne: tabelle SQL, fogli excel, google sheet, ecc) vs non strutturati (testo, immagini, 
 video, audio, 3D). Il fuoco del corso è sui primi.
@@ -18,16 +19,18 @@ video, audio, 3D). Il fuoco del corso è sui primi.
 - Dataset di prova: "UCI ML datasets", "kaggle datasets" --> centinaia di dataset utilizzabili come prova degli algoritmi di ML
 
 
-- EDA (Analisi Esplorativa dei Dati): si parte ccosì, non con la costruzione del modello predittivo: identificare Missing Value e outlier (possono impattare molto l'accuratezza del modello), 3 plot (scatterplot, boxplot, istogramma), 
+- EDA (Analisi Esplorativa dei Dati): si parte così, non con la costruzione del modello predittivo: identificare Missing Value e outlier (possono impattare molto l'accuratezza del modello), 3 plot (scatterplot, boxplot, istogramma), 
 correlazioni  tra coppie di variabili numeriche, pattern
 - Trend vs pattern: il primo è auto-parlante (lineare, non lineare, crescente, decrescente, esponenziale, ecc), il pattern (una forma ripetitiva nei dati, per esempio una ciclicità in una serie temporale)
 
-Su questi punti abbiamo visto le seguenti slide del PDF "Introduzione alla DF":
-- dataframe: slide 12-13, 15-16, 30)
+Su questi punti abbiamo visto le seguenti slide del PDF "Introduzione alla DS":
+- dataframe: slide 12-13, 15-16, 30
 - EDA : slide 39
 - pattern: slide 40
-- processo di ML: slide 49
----
+- processo di ML: slide 49, 2-3
+
+
+--------------------------------------------------------------------------------------------------------------------------
 
 
 Programma della prima giornata (3.11.2025) - pomeriggio
@@ -41,8 +44,24 @@ Programma della prima giornata (3.11.2025) - pomeriggio
 --> se la colonna risposta è quantitativa --> è un problema di PREVISIONE NUMERICA e la metrica è lo RMSE (Rooted Mean Square Error)
 I predittori invece possono essere indifferentemente quantitativi o qualitativi (sono trattati in modo differente)
 
-- la metrica di accuratezza della classificazione ("classification accuracy")
-- il primo modello predittivo in Orange (l'albero per il dataset Titanic); vari modelli per il dataset Credit
+- la metrica di accuratezza della classificazione (CA = "classification accuracy") in percentuale (da 0% a 100% - anche se in genere è espressa da 0 a 1). Più alta, meglio è.
+CA esprime il numero di classificazioni corrette sul totale. Il complemento a 1 della CA (cioè 1 - CA) esprime l'errore di classificazione, ovvero il numero di "misclassificazioni", ad esempio, con due classi possibili (uno
+scenario molto frequente) uno 0 classificato come 1 oppure un 1 classificato come 0 sul totale delle classificazioni.
+
+- nei problemi di classificazione in genere la classe 1 (il "positivo") rappresenta l'evento di interesse, in genere abbastanza raro: il paziente ha la malattia, il cliente non restituisce il prestito, la transazione di carta di credito 
+è una frode, la email è spam, il cliente abbandona l'azienda (churn). Esistono anche eventi di interesse di significato positivo, ad esempio: il cliente risponde al contatto commerciale, l'ad sensing (click sulla pubblicità 
+mostrata dal sito, la sopravvivenza al naufragio del Titanic).
+La classe 0, invece, esprime in genere l'evento più frequente, che NON è di "interesse". 
+Attenzione: la classe 1, poichè rappresenta un evento "raro", è poco rappresentata nel dataset di training. E' un problema perchè in questo modo l'algoritmo, fittato (adattato) ai dati, IMPARA molto meglio le relazioni
+tra i predittori e la classe 0 e molto meno  le relazioni tra i predittori e la classe 1 (perchè ha pochi esempi). Le due classi 0 e 1 devono invece essere abbastanza bilanciate. Ci sono delle tecniche di RI-BILANCIAMENTO 
+delle classi, la principale è lo SMOTE, vedi: https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/ 
+In Orange NON èimplementato --> https://github.com/biolab/orange3/pull/3269
+
+- il primo modello predittivo in Orange (per il dataset Titanic); vari modelli per il dataset Credit
+- con un classificatore binario (cioè 2 classi possibili) abbiamo 4 possibili esiti: TP, TN, FP, FN. La semplice metrica CA non è sufficiente perchè spesso il costo del FN >> costo del FP (vale per molti casi: default creditizio,
+esame medici, ecc). Serve la matrice di confusione, che separa i 4 casi.
+Emblematico è il caso del dataset Titanic (vedi "Titanic Classifier.ows) fittato con 2 modelli di classificazione (KNN e Regressione Logistica) cche forniscono la stessa CA ma #FN molto diverso.
+
 - la metrica di accuratezza della regressione (RMSE)
 
 - nella classificazione l'incertezza è espressa tramite le probabilità delle classi, nella regressione l'incertezza è espressa tramite un intervallo di confidenza 
@@ -51,12 +70,34 @@ I predittori invece possono essere indifferentemente quantitativi o qualitativi 
 
 - Object detection --> video AlertCalifornia (su github) e video sulle autostrade (https://www.linkedin.com/posts/ultanorourke_ai-analytics-datascience-activity-7159608320360636418-bAbL?utm_source=share&utm_medium=member_desktop)
 
-------------------
+--------------------------------------------------------------------------------------------------------------------------
  
 Programma della seconda giornata (4.11.2025) - mattina
 
+- RMSE (di test)
+
+I modelli di ML sono ALLENATI sui dati di training e TESTATI su altri dati di test. Cioè, in pratica, la tabella, le sue righe, è suddivisa in 2 porzioni: training e test, normalmente nella percentuale 75%-25%. 
+Questa è una delle principali REGOLE del ML. Quella che conta è l'accuratezza sui dati di TEST.
+NB. La suddivisione è casuale (è come estrarre le palline dall'urna del Lotto). Ciò pone il problema della RIPRODUCIBILITA' dei risultati (con gli stessi dati e lo stesso software ogni utente ottiene risultati differenti).
+Nei PC e nel software è impossibile generare veri numeri casuali, in realtà si parla di generazione "pseudo-casuale" perchè originata da un SEME (seed, random state, ecc). Cioè, a parità di seme, otteniamo tutti la 
+STESSA suddivisione tra treeaining e test. Cioè otteniamo la riproducibilità dei risultati!
+
+RMSE (Rooted Mean Square Error): vedi voce Wikipedia EN (https://en.wikipedia.org/wiki/Root_mean_square_deviation)
+Vedi "Regressione su Credit.ows". 
+Poichè RMSE è un "errore", più basso è, meglio è.
+A differenza della CA della classificazione, che è "normalizzata tra 0 e 1", RMSE della Regressione NON ha una scala di riferimento, cioè può assumere qualsiasi valore. 
+
+----
+
+FRAMEWORK GENERALE di valutazione dei modelli predittivi.
+A questo punto abbiamo 3 metriche (CA e CM per la classificazione e RMSE per la regressione) di valutazione della capacità predittiva dei vari modelli nel TEST, semplici da comprendere, facili da calcolare con 
+tutti i software  (Orange, Python, R, Excel) e utili per CONFRONTARE i modelli. Cioè, noi possiamo fittare diversi algoritmi sui dati di training, calcolare le metriche sui dati di test e confrontare i modelli per individuare 
+quello migliore in quel caso (l'accuratezza più alta oppure RMSE più basso).
+Questa framework è usata anche per VALUTARE modelli forniti da TERZI (un fornitore, un collega, ecc).
+
+----
+
+
 - finire CdU (primo e secondo gruppo)
-- RMSE
+
 - fine del wf "getting started"
-
-
