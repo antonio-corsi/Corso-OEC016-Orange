@@ -22,6 +22,11 @@ video, audio, 3D). Il fuoco del corso è sui primi.
 correlazioni  tra coppie di variabili numeriche, pattern
 - Trend vs pattern: il primo è auto-parlante (lineare, non lineare, crescente, decrescente, esponenziale, ecc), il pattern (una forma ripetitiva nei dati, per esempio una ciclicità in una serie temporale)
 
+Su questi punti abbiamo visto le seguenti slide del PDF "Introduzione alla DF":
+- dataframe: slide 12-13, 15-16, 30)
+- EDA : slide 39
+- pattern: slide 40
+- processo di ML: slide 49
 ---
 
 
@@ -30,7 +35,7 @@ Programma della prima giornata (3.11.2025) - pomeriggio
 - fine del wf "getting started"
 
 - Readme
-- Commit: come funziona. Aggiungere slide mancanti. 
+- Commit: come funziona.
 
 --> se la colonna risposta è qualitativa --> è un problema di CLASSIFICAZIONE e la metrica è la "classification accuracy
 --> se la colonna risposta è quantitativa --> è un problema di PREVISIONE NUMERICA e la metrica è lo RMSE (Rooted Mean Square Error)
@@ -40,6 +45,18 @@ I predittori invece possono essere indifferentemente quantitativi o qualitativi 
 - il primo modello predittivo in Orange (l'albero per il dataset Titanic); vari modelli per il dataset Credit
 - la metrica di accuratezza della regressione (RMSE)
 
-- vari casi d'uso di ML
-
 - nella classificazione l'incertezza è espressa tramite le probabilità delle classi, nella regressione l'incertezza è espressa tramite un intervallo di confidenza 
+
+- vari casi d'uso di ML (file PDF "Introduzione alla DS" --> slide 138 --> 183 e slide 7 --> 10)
+
+- Object detection --> video AlertCalifornia (su github) e video sulle autostrade (https://www.linkedin.com/posts/ultanorourke_ai-analytics-datascience-activity-7159608320360636418-bAbL?utm_source=share&utm_medium=member_desktop)
+
+------------------
+ 
+Programma della seconda giornata (4.11.2025) - mattina
+
+- finire CdU (primo e secondo gruppo)
+- RMSE
+- fine del wf "getting started"
+
+
