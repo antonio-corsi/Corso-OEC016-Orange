@@ -72,7 +72,7 @@ Emblematico è il caso del dataset Titanic (vedi "Titanic Classifier.ows) fittat
 
 --------------------------------------------------------------------------------------------------------------------------
  
-Programma della seconda giornata (4.11.2025) - mattina
+Programma della seconda giornata (4.11.2025) 
 
 - RMSE (di test)
 
@@ -90,14 +90,26 @@ A differenza della CA della classificazione, che è "normalizzata tra 0 e 1", RM
 ----
 
 FRAMEWORK GENERALE di valutazione dei modelli predittivi.
-A questo punto abbiamo 3 metriche (CA e CM per la classificazione e RMSE per la regressione) di valutazione della capacità predittiva dei vari modelli nel TEST, semplici da comprendere, facili da calcolare con 
+A questo punto abbiamo 3 metriche (CA e CM per la classificazione e RMSE per la regressione) di valutazione della capacità predittiva (sui dati di TEST) dei vari modelli, semplici da comprendere, facili da calcolare con 
 tutti i software  (Orange, Python, R, Excel) e utili per CONFRONTARE i modelli. Cioè, noi possiamo fittare diversi algoritmi sui dati di training, calcolare le metriche sui dati di test e confrontare i modelli per individuare 
 quello migliore in quel caso (l'accuratezza più alta oppure RMSE più basso).
 Questa framework è usata anche per VALUTARE modelli forniti da TERZI (un fornitore, un collega, ecc).
 
 ----
 
+La regressione in Excel.
+Dalla scheda "Dati" selezionare il riquadro "Analisi" e il bottone "Analisi dati". Il riquadro "Analisi" è disponibile nel seguente modo: File --> Opzioni --> Componenti aggiuntitivi --> Componenti aggiuntivi in Excel 
+--> bottone "Vai" --> check di "Strumenti di analisi".
 
-- finire CdU (primo e secondo gruppo)
+----
+
+- finiti CdU (primo e secondo gruppo)
+
+----
+
+introduzione all'algoritmo KNN
+- vedi slide "KNN -  Introduzione"
+- vedi wf "Classificazione KNN su default (segnale debole)"
+- vedi questa chat sulla generazione dei dati di training e test (https://chatgpt.com/share/690a1a30-aa78-8012-a5b8-7a704d91dc0a)
 
 - fine del wf "getting started"
