@@ -1,7 +1,7 @@
 # Corso-OEC016-Orange (Introduzione al ML predittivo)
 3-4-5 novembre 2025
 
-Programma della prima giornata (3.11.2025) - mattina:
+Programma della PRIMA giornata (3.11.2025) - mattina:
 
 - Tassonomia (AI vs ML vs NN vs DL vs genAI)
 - Dati strutturati (tabelle righe / colonne: tabelle SQL, fogli excel, google sheet, ecc) vs non strutturati (testo, immagini, 
@@ -37,8 +37,12 @@ Programma della prima giornata (3.11.2025) - pomeriggio
 
 - fine del wf "getting started"
 
+---
+
 - Readme
 - Commit: come funziona.
+
+---
 
 --> se la colonna risposta è qualitativa --> è un problema di CLASSIFICAZIONE e la metrica è la "classification accuracy
 --> se la colonna risposta è quantitativa --> è un problema di PREVISIONE NUMERICA e la metrica è lo RMSE (Rooted Mean Square Error)
@@ -113,3 +117,26 @@ introduzione all'algoritmo KNN
 - vedi questa chat sulla generazione dei dati di training e test (https://chatgpt.com/share/690a1a30-aa78-8012-a5b8-7a704d91dc0a)
 
 - fine del wf "getting started"
+
+--------------------------------------------------------------------------------------------------------------------------
+ 
+Programma della terza giornata (5.11.2025) 
+
+- Clustering in Python su dati e-commerce: cleaned_customer_data (380.000 righe fattura, non gestibili in Orange, occorre prendere solo le prime 5000), normalized_customer_data (per 4298 clienti)
+Attenzione: i risultati di questo clustering su Orange differiva da quello Python per un errore: su Orange abbiamo standardizzato i dati, ma non li abbiamo rankizzati.
+- Clustering in Orange su iris
+- vari widget di Orange
+- Clustering in Orange su dati -e commerce
+- Video sugli spazi HD (https://www.youtube.com/watch?v=wvsE8jm1GzE)
+
+Alberi Decisionali (un algoritmo sia di classificazione sia di regressione) 
+- animazione (http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)
+- in Orange
+- Decision Boundary 
+
+Regressione Lineare
+- in Orange
+
+Reti neurali --> vedi slide "NN - architettura"
+
+Script Python (widget utile per fare cose che Orange in modo nativo, tra le quali il fine-tuning degli iper-parametri) --> vedi ows apposito
